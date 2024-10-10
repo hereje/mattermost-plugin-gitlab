@@ -125,7 +125,7 @@ const Subscriptions = (props: SubscriptionsProps) => {
 };
 
 interface SubscriptionsProps {
-    currentChannelId: string;
+    currentChannelId?: string;
     subscriptions: Subscription[];
 }
 
@@ -138,13 +138,13 @@ interface Subscription {
 interface RhsSidebarProps {
     currentUserId: string,
     connected: boolean,
-    username: string,
-    gitlabURL: string,
-    currentChannelId: string,
-    currentChannelSubscriptions: Subscription[],
+    username?: string,
+    gitlabURL?: string,
+    currentChannelId?: string,
+    currentChannelSubscriptions: Partial<Subscription>[],
     pluginServerRoute: string,
     actions: {
-        getChannelSubscriptions: (channel: string) => Promise<void>,
+        getChannelSubscriptions: (channel: string) => Promise<any>,
         sendEphemeralPost: (message: string) => void;
     }
 }
